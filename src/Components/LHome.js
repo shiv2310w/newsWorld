@@ -124,6 +124,7 @@ export default class LHome extends Component {
           <div className="df loading">
             {this.state.loading && this.state.articles && <Spinner />}
           </div>
+          {!this.props.header && !this.state.loading && <div className="header">Top {this.capitalizeFirstLetter(this.props.category)} Headlines - News</div>} 
           <div className='df main-news-box' id='main-news'>
             {
               this.state.articles ?
