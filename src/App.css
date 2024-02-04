@@ -33,7 +33,7 @@ body {
 nav {
     width: 77rem;
     height: 4rem;
-    background-color: rgb(223 0 0);
+    background-color: rgb(242, 9, 9);
     position: sticky;
     top: 0;
     z-index: 1;
@@ -56,6 +56,7 @@ li {
 li:hover {
     box-shadow: 0 0 1rem rgb(246, 174, 174);
     cursor: pointer;
+    background: rgb(217 0 0);
 }
 
 .link{
@@ -125,6 +126,17 @@ li:hover {
     text-align: end;
     padding-right: 0.5rem;
     border-radius: 0.3rem;
+}
+
+.header{
+    font-size: 3rem;
+    text-align: center;
+    margin: 0.7rem 0rem;
+    color: slategrey;
+    box-shadow: 0 0 1rem darkgray;
+    border-radius: 0.4rem;
+    padding: 0.4rem 0rem;
+    font-family: 'Ubuntu';
 }
 
 .container {
@@ -198,8 +210,9 @@ li:hover {
 }
 
 .pub-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
+    font-family: 'Berkshire Swash';
 }
 
 .news-title {
@@ -274,4 +287,23 @@ button:disabled{
 
 .loading{
     width: 74rem;
+}
+
+.name{
+    background: #e5e5ff;
+    padding: 0rem 0.5rem;
+    border-radius: 0.4rem;
+    font-family:'Ubuntu';
+}
+
+.publish .pub-name{
+    font-family: system-ui;
+}
+.publish{
+    font-size: 1rem;
+}
+
+.not-found{
+    font-size: 4rem;
+    color: #c5baba;
 }

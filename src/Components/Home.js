@@ -3,17 +3,19 @@ import NewsItems from './NewsItems'
 import PropTypes from 'prop-types'
 import Spinner from './Spinner';
 import HomeHeader from './HomeHeader';
-import NavBar from './NavBar';
 
 export default class Home extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             articles: null,
             page: 1,
             loading: false,
         }
+        document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsWorld`
     }
+
+    capitalizeFirstLetter = (str)=>{return str.charAt(0).toUpperCase() + str.slice(1)}
 
     static defaultProps = {
         country: 'in',
@@ -36,7 +38,6 @@ export default class Home extends Component {
     dataFetch = async (pgno = 1) => {
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=241a4419070d48e28ad72168354095aa&page=${pgno}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
-
         let data = await fetch(url);
         let jsonData = await data.json();
         this.setState({
@@ -48,21 +49,13 @@ export default class Home extends Component {
 
     handlePrevPage = () => {
         window.scrollTo(0, 0);
-        this.setState({ loading: true });
         this.dataFetch(this.state.page - 1);
-        this.setState({
-            page: this.state.page - 1,
-            loading: false,
-
-        })
+        this.setState({page: this.state.page - 1})
     }
     handleNextPage = () => {
         window.scrollTo(0, 0);
-        this.setState({ loading: true });
-        this.setState({
-            page: this.state.page + 1,
-            loading: false,
-        })
+        this.setState({page: this.state.page + 1})
+        this.dataFetch(this.state.page + 1);
     }
 
     // clickScreen = () => {
@@ -78,13 +71,14 @@ export default class Home extends Component {
                         {this.state.loading && <Spinner />}
                     </div>
                     {this.props.header && !this.state.loading && <HomeHeader />}
+                    {!this.props.header && !this.state.loading && <div className="header">Top {this.capitalizeFirstLetter(this.props.category)} Headlines - News</div>} 
                     <div className='df main-news-box'>
                         {
                             this.state.articles ?
                                 !this.state.loading && this.state.articles.map((element) => {
                                     if (element.url !== null && element.description !== null && element.urlToImage !== null) {
                                         return <div key={element.url}>
-                                            <NewsItems title={element.title} desc={element.description.slice(0, 70)} url={element.url} urlImg={element.urlToImage} pub={element.source.name} pubTime={element.publishedAt} />
+                                            <NewsItems title={element.title.slice(0,60)} desc={element.description.slice(0, 110)} url={element.url} urlImg={element.urlToImage} pub={element.source.name} pubTime={element.publishedAt} />
                                         </div>
                                     } else {
                                         return ''
