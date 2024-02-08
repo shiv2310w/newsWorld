@@ -17,6 +17,13 @@ export default class NavBar extends Component {
             this.setState({ style: '0rem' })
         }
     }
+
+    removeBar = () => {
+        if (this.state.style === '0rem') {
+            this.setState({ style: '-20rem' })
+        }
+    }
+
     render() {
         return (
             <>
