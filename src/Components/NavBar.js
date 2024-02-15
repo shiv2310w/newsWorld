@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Logo from './logo.png'
+import Logo from './img/logo.png'
 import { Link } from 'react-router-dom'
 export default class NavBar extends Component {
     constructor() {
@@ -31,7 +31,7 @@ export default class NavBar extends Component {
                     <nav className="df">
                         <ul className="df">
                             <div className="c-logo">
-                                <li className="logoli"><Link to='/'><img src={Logo} alt="logo" className="logo" /></Link></li>
+                                <li className="logoli" onClick={this.removeBar}><Link to='/' className='a'><img src={Logo} alt="logo" className="logo" /></Link></li>
                             </div>
                             <div className="title df">
                                 <p>News World</p>
@@ -39,7 +39,8 @@ export default class NavBar extends Component {
                             <div className="c-li">
                                 <li onClick={this.sideOut}>News Category</li>
                                 <Link to={'/world'}><li>World</li></Link>
-                                <li>About us</li>
+                                <Link to={'/about'}><li>About us</li></Link>
+                                <Link to={'/contact'}><li>Contact us</li></Link>
                             </div>
                         </ul>
                     </nav>

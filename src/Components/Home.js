@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Spinner from './Spinner';
 import HomeHeader from './HomeHeader';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import arrow from './arrow.png'
 
 export default class Home extends Component {
     constructor(props) {
@@ -70,7 +69,7 @@ export default class Home extends Component {
 
     fetchMoreData = async () => {
         this.setState({ page: this.state.page + 1 });
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page - 1}&pageSize=${(this.state.totalArticles - this.state.articles.length) === (this.state.totalArticles % this.props.pageSize) ? this.props.pageSize - (this.props.pageSize - this.state.totalArticles % this.props.pageSize):this.props.pageSize}`;
         let data = await fetch(url);
         let jsonData = await data.json();
         this.setState({
@@ -87,7 +86,7 @@ export default class Home extends Component {
                         {this.state.loading && <Spinner />}
                     </div>
                     {this.props.header && !this.state.loading && <HomeHeader />}
-                    {!this.props.header && !this.state.loading && <div className="header">Top {this.capitalizeFirstLetter(this.props.category)} Headlines - News</div>}
+                    {!this.props.header && !this.state.loading && <div className="header">Top News Headlines - {this.capitalizeFirstLetter(this.props.category)}</div>}
                     <InfiniteScroll
                         dataLength={this.state.articles.length}
                         next={this.fetchMoreData}
@@ -107,8 +106,8 @@ export default class Home extends Component {
                                         }
                                     }) : ""
                             }
-                    {!this.state.loading && <div className="uparrow" onClick={() => {window.scrollTo(0, 0) }}><img src={arrow} alt="up_arrow" /></div>}
                         </div>
+                    {!this.state.loading && <div className="uparrow btn" onClick={() => {window.scrollTo(0, 0) }}><button>&uarr; Go to Top</button></div>}
                     </InfiniteScroll>
                     {/* ---------***************************************--------------------------------------------- */}
                     {/* {!this.state.loading &&

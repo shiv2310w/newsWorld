@@ -5,6 +5,8 @@ import Home from './Components/Home';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import LHome from './Components/LHome';
 import LoadingBar from 'react-top-loading-bar'
+import About from './Components/About';
+import Contact from './Components/Contact';
 
 export default class App extends Component {
   apikey = process.env.REACT_APP_API_KEY
@@ -16,12 +18,13 @@ export default class App extends Component {
   setProgress = (p) => {
     this.setState({ progress: p })
   }
+
   render() {
     return (
       <>
         <BrowserRouter>
           <div className='full-container text-center'>
-            <NavBar />
+            <NavBar/>
             <LoadingBar
               color='#cb0606'
               progress={this.state.progress}
@@ -36,6 +39,8 @@ export default class App extends Component {
               <Route exact path='/sports' element={<Home setProgress={this.setProgress} apikey={this.apikey} key={'sports'} country={'in'} category={'sports'} pageSize={10} header={false} />} />
               <Route exact path='/technology' element={<Home setProgress={this.setProgress} apikey={this.apikey} key={'technology'} category={'technology'} header={false} />} />
               <Route exact path='/world' element={<LHome setProgress={this.setProgress} apikey={this.newsdatapi} key={'world'} category={'world'} pageSize={10} header={false} />} />
+              <Route exact path='/about' element={<About />} />
+              <Route exact path='/contact' element={<Contact />} />
             </Routes>
           </div>
         </BrowserRouter>

@@ -109,7 +109,6 @@ export default class LHome extends Component {
   // ---------------------***************************************------------------------------------
 
   fetchMoreData = async () => {
-    // this.setState({ page: this.pageList[this.pageList.length - 1] });
     let url = `https://newsdata.io/api/1/news?apikey=${this.props.apikey}&q=india&page=${this.pageList[this.pageList.length - 1]}&category=${this.props.category}`;
     let data = await fetch(url);
     let jsonData = await data.json();
@@ -117,11 +116,9 @@ export default class LHome extends Component {
       this.setState({
         articles: this.state.articles.concat(jsonData.results),
         totalArticles: jsonData.totalResults,
-        // page: this.pageList[this.pageList.length - 1]
       })
       this.pageList.push(jsonData.nextPage);
     }
-    // console.log(jsonData)
   }
 
 
@@ -132,7 +129,7 @@ export default class LHome extends Component {
           <div className="df loading">
             {this.state.loading && this.state.articles && <Spinner />}
           </div>
-          {!this.props.header && !this.state.loading && <div className="header">Top {this.capitalizeFirstLetter(this.props.category)} Headlines - News</div>}
+          {!this.props.header && !this.state.loading && <div className="header">Top News Headlines - {this.capitalizeFirstLetter(this.props.category)}</div>}
 
           <InfiniteScroll
             dataLength={this.state.articles.length}
@@ -156,6 +153,7 @@ export default class LHome extends Component {
               }
             </div>
           </InfiniteScroll>
+          {!this.state.loading && <div className="uparrow btn" onClick={() => {window.scrollTo(0, 0) }}><button>&uarr; Go to Top</button></div>}
           {/* // ---------------------***************************************------------------------------------ */}
           {/* {!this.state.loading &&
             <div className="footer df btn">

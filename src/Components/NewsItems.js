@@ -1,28 +1,26 @@
-import React, { Component } from 'react'
-// import {Link} from 'react-router-dom'
-export default class NewsItems extends Component {
+import React from 'react'
 
+const NewsItems = (props) => {
   // replace(/<[^>]*>?/g,'') -> for html tags remove from normal text
-
-  render() {
-    let { title, desc, pub, pubTime, url, urlImg } = this.props;
-    return (
-      <>
-        <div className="text-center">
-          <div className="news-box df">
-            <div className="content-part df">
-              <div className="news-title" id="news-title">{title}...</div>
-              <div className="description" id="description">{String(desc).replace(/<[^>]*>?/g,'')}...</div>
-              <div className="name" id="name"><span className="pub-name">Source Name :</span> {pub}</div>
-              <div className="publish name" id="publish"><span className="pub-name">PublishedAt :</span> {new Date(pubTime).toLocaleString()}</div>
-              <div className="btn" id="btn"><button type="button"><a href={url}>Read More</a></button></div>
-            </div>
-            <div className="img-part">
-              <img src={urlImg} alt="Not Avilable" />
-            </div>
+  let { title, desc, pub, pubTime, url, urlImg } = props;
+  return (
+    <>
+      <div className="text-center">
+        <div className="news-box df">
+          <div className="content-part df">
+            <div className="news-title" id="news-title">{title}...</div>
+            <div className="description" id="description">{String(desc).replace(/<[^>]*>?/g, '')}...</div>
+            <div className="name" id="name"><span className="pub-name">Source Name :</span> {pub}</div>
+            <div className="publish name" id="publish"><span className="pub-name">PublishedAt :</span> {new Date(pubTime).toLocaleString()}</div>
+            <div className="btn" id="btn"><a href={url}><button type="button">Read More</button></a></div>
+          </div>
+          <div className="img-part">
+            <img src={urlImg} alt="Not Avilable" />
           </div>
         </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
 }
+
+  export default NewsItems;

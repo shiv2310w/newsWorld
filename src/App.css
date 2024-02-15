@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 /* body::-webkit-scrollbar{
     background: transparent;
 }
@@ -30,26 +34,30 @@ body {
     overflow-x: hidden;
 }
 
+header {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
 nav {
     width: 77rem;
     height: 4rem;
     background-color: #0d0d5c;
-    position: sticky;
-    top: 0;
-    z-index: 1;
 }
 
 ul {
-    gap: 11rem;
+    gap: 8rem;
 }
 
 li {
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-left: 1rem;
     padding: 0.2rem;
     transition: 0.5s;
     color: white;
+    text-shadow: 0 0 0.5rem rgb(246, 138, 138);
 }
 
 li:hover {
@@ -58,13 +66,25 @@ li:hover {
     background: #060623;
 }
 
-.link{
+.link {
     text-decoration: none;
     color: white;
 }
 
 .logoli:hover {
     box-shadow: none;
+}
+
+.logoli:focus-visible {
+    outline: none;
+}
+
+.a:focus-visible {
+    outline: none;
+}
+
+.logo:focus-visible {
+    outline: none;
 }
 
 .c-li li {
@@ -75,6 +95,7 @@ li:hover {
 .c-li li:hover {
     background: #0c0c36;
 }
+
 .c-li a {
     text-decoration: none;
     color: ghostwhite;
@@ -102,6 +123,8 @@ li:hover {
     border: none;
     box-shadow: none;
     margin-right: 5rem;
+    border-top-left-radius: 1.6rem;
+    border-bottom-right-radius: 2rem;
 }
 
 .sideBar {
@@ -127,7 +150,7 @@ li:hover {
     border-radius: 0.3rem;
 }
 
-.header{
+.header {
     font-size: 3rem;
     text-align: center;
     margin: 0.7rem 0rem;
@@ -233,6 +256,8 @@ li:hover {
     padding: 0.2rem;
     cursor: pointer;
     height: 2rem;
+    color: white;
+    font-size: 1.1rem;
 }
 
 .btn button:hover {
@@ -279,48 +304,266 @@ li:hover {
 }
 
 
-button:disabled{
+button:disabled {
     color: gray;
     background-color: rgb(26 26 192);
-    cursor:default;
+    cursor: default;
 }
 
-.loading{
+.loading {
     width: 74rem;
 }
 
-.name{
+.name {
     background: #e5e5ff;
     padding: 0rem 0.5rem;
     border-radius: 0.4rem;
-    font-family:'Ubuntu';
+    font-family: 'Ubuntu';
 }
 
-.publish .pub-name{
+.publish .pub-name {
     font-family: system-ui;
 }
-.publish{
+
+.publish {
     font-size: 1rem;
 }
 
-.not-found{
+.not-found {
     font-size: 4rem;
     color: #c5baba;
 }
 
-.uparrow{
-    position: fixed;
-    top: 80dvh;
-    right: 0.5rem;
-    transition: 0.3s;
+.uparrow {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
 }
 
-.uparrow img{
-    width: 2rem;
-    border-radius: 1rem;
-    text-shadow: 0 0 1rem;
+.uparrow button {
+    background: gray;
+    margin-bottom: 0.5rem;
+    text-align: center;
 }
-.uparrow:hover{
-    top: 79dvh;
+
+/* About  */
+
+.aboutContainer {
+    width: 100dvw;
+    height: 100dvh;
+    flex-direction: column;
+}
+
+.aboutHeading {
+    width: 100dvw;
+    height: 15rem;
+    justify-content: space-between;
+    background-color: rgb(7, 1, 31);
+}
+
+.aboutHeading p {
+    height: 3rem;
+    width: 30rem;
+    font-size: 3rem;
+    text-align: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.1rem;
+    box-shadow: 0 0 1rem gray;
+    color: white;
+    background: rgb(11, 0, 170);
+    text-shadow: 0 0 0.5rem white;
+    font-family: 'Berkshire Swash', serif;
+    margin-bottom: 5rem;
+}
+
+.aboutContent {
+    width: 100dvw;
+    height: 22.3rem;
+    background-color: rgb(230, 228, 255);
+}
+
+.aboutContent .aboutC {
+    font-size: 1.3rem;
+    width: 75dvw;
+    height: 21rem;
+    background: rgb(239, 239, 239);
+    text-align: start;
+    box-shadow: 0 0 1rem gray;
+    padding: 1.5rem;
+    margin-top: -9rem;
+    align-items: start;
+    border-radius: 0.5rem;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 0 0 0.5rem gray;
+    gap: 1rem;
+}
+
+.newsImg {
+    width: 26rem;
+}
+
+.newsimg {
+    width: 14rem;
+    border-radius: 0.2rem;
+    margin-right: 1rem;
+    margin-bottom: 10rem;
+}
+
+/* Contact */
+
+.contactHeading {
+    width: 100dvw;
+    height: 20rem;
+    justify-content: flex-end;
+    background-color: rgb(8, 1, 31);
+}
+
+.contactHeading p {
+    height: 3rem;
+    width: 30rem;
+    font-size: 3rem;
+    text-align: start;
+    padding: 1rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.1rem;
+    box-shadow: 0 0 1rem gray;
+    color: white;
+    background: rgb(31, 0, 170);
+    text-shadow: 0 0 0.5rem white;
+    font-family: 'Berkshire Swash', serif;
+    margin-bottom: 10rem;
+}
+
+.contactContent {
+    width: 100dvw;
+    height: 35rem;
+    background-color: rgb(255, 228, 228);
+}
+
+.contactC {
+    font-size: 1.3rem;
+    width: 80dvw;
+    height: 40rem;
+    background: rgb(239, 239, 239);
+    text-align: start;
+    box-shadow: 0 0 1rem gray;
+    padding: 1.5rem;
+    margin-top: -13rem;
+    align-items: start;
+    border-radius: 0.5rem;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 0 0 0.5rem gray;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.contact {
+    flex-wrap: wrap-reverse;
+}
+
+.form {
+    width: 30rem;
+    flex-direction: row;
+}
+
+.imgBox {
+    width: 30rem;
+    height: 28rem;
+    text-align: end;
+}
+
+.imgBox img {
+    width: 30rem;
+}
+
+form {
+/* .form1 { */
+    box-shadow: 0 0 0.4rem #000076;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #00003c;
+    color: white;
+}
+
+.input {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input:focus-visible {
+    outline: none;
+    background-color: #e8e6ff;
+}
+
+.cominp {
+    width: 15rem;
+    height: 1.8rem;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0.1rem;
+    padding: 0.3rem;
+    background: white;
+    box-shadow: 0 0 0.5rem white;
+    margin-top: 0.2rem;
+}
+
+textarea {
+    resize: none;
+    height: 8rem;
+    width: 23rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.1rem;
+    background: white;
+    box-shadow: 0 0 0.5rem white;
+    margin-top: 0.2rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.3rem;
+}
+
+textarea:focus-visible {
+    outline: none;
+    background-color: #e8e6ff;
+}
+
+.btn-sub {
+    font-size: 1.5rem;
+    padding: 0.2rem;
+    background: #00005e;
+    border: 1px solid white;
+    border-radius: 0.4rem;
+    color: white;
+    transition: 0.5s;
+}
+
+.btn-sub:hover {
     cursor: pointer;
+    box-shadow: 0 0 0.5rem white;
+}
+
+.copyright {
+    width: 65rem;
+    text-align: center;
+    flex-direction: column;
+}
+
+.imagesContact {
+    gap: 2rem;
+}
+
+.imagesContact img {
+    width: 2rem;
+}
+
+.imagesContact img:hover {
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 1rem #9a9fc1;
 }
