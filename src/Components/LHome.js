@@ -142,7 +142,7 @@ export default class LHome extends Component {
                 this.state.articles ?
                   !this.state.loading && this.state.articles.map((element) => {
                     if (element.title !== null && element.description !== null && element.image_url !== null) {
-                      return <div key={element.url}>
+                      return <div key={element.url+element.pubDate}>
                         <NewsItems title={element.title.slice(0, 60)} desc={element.description.slice(0, 100)} url={element.link} urlImg={element.image_url} pub={element.source_id} pubTime={element.pubDate} />
                       </div>
                     }

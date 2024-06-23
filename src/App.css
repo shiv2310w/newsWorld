@@ -13,6 +13,10 @@ body {
     overflow-x: hidden;
 }
 
+#root {
+    overflow-x: hidden;
+}
+
 /* body::-webkit-scrollbar{
     background: transparent;
 }
@@ -29,25 +33,26 @@ body::-webkit-scrollbar-thumb{
 
 body {
     width: 100dvw;
-    height: 100dvh;
-    background-color: #fff2f2;
+    background: repeating-linear-gradient(200deg, #e4e4e4, #e4e6ff, transparent 200px);
     overflow-x: hidden;
 }
 
 header {
-    position: sticky;
+    position: fixed;
     z-index: 1;
     top: 0;
+    width: 100vw;
 }
 
 nav {
-    width: 77rem;
+    width: 100vw;
     height: 4rem;
     background-color: #0d0d5c;
 }
 
-ul {
-    gap: 8rem;
+.ul {
+    width: 95vw;
+    justify-content: space-between;
 }
 
 li {
@@ -122,7 +127,6 @@ li:hover {
 .logoli {
     border: none;
     box-shadow: none;
-    margin-right: 5rem;
     border-top-left-radius: 1.6rem;
     border-bottom-right-radius: 2rem;
 }
@@ -153,7 +157,7 @@ li:hover {
 .header {
     font-size: 3rem;
     text-align: center;
-    margin: 0.7rem 0rem;
+    margin: 0.7rem 2rem;
     color: slategrey;
     box-shadow: 0 0 1rem darkgray;
     border-radius: 0.4rem;
@@ -162,25 +166,22 @@ li:hover {
 }
 
 .container {
-    width: 74rem;
+    width: 100vw;
     margin-top: 0.5rem;
-    /* background-color: rgb(115 115 250); */
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
     margin-bottom: 1.5rem;
+    margin-top: 5rem;
 }
 
 .top-news-headlines {
-    width: 73rem;
+    width: 100%;
     height: 8rem;
-    /* background: rgb(61, 93, 255); */
-    box-shadow: 0 0 0.3rem #3e3e40;
     border-radius: 0.3rem;
-    margin: 0.5rem 0rem;
-    padding: 0.4rem;
     align-items: flex-start;
     gap: 3rem;
+
 }
 
 .heading {
@@ -192,10 +193,12 @@ li:hover {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 1rem;
+    box-shadow: 0 0 0.3rem #3e3e40;
+    padding: 0.4rem;
 }
 
 .content {
-    width: 70rem;
+    width: 72rem;
     font-size: 1.1rem;
     font-family: 'Nunito', sans-serif;
 }
@@ -213,19 +216,17 @@ li:hover {
 }
 
 .news-box {
-    width: 71rem;
-    /* height: 10rem; */
-    /* background-color: blue; */
+    width: 92vw;
     border-radius: 0.3rem;
-    box-shadow: 0 0 1rem #bebec1;
+    box-shadow: 0 0 1.4rem #8f8f91;
     padding: 1rem;
     font-size: 1.1rem;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 4rem;
+    margin: 0rem 2rem;
 }
 
 .content-part {
-    width: 50rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
@@ -244,7 +245,6 @@ li:hover {
 }
 
 .description {
-    /* font-family: 'Roboto Condensed', sans-serif; */
     font-family: 'Nunito', sans-serif;
 }
 
@@ -311,7 +311,7 @@ button:disabled {
 }
 
 .loading {
-    width: 74rem;
+    width: 100vw;
 }
 
 .name {
@@ -348,17 +348,14 @@ button:disabled {
 
 /* About  */
 
-.aboutContainer {
-    width: 100dvw;
-    height: 100dvh;
-    flex-direction: column;
-}
+/* .dffcntr {
+    margin: 0;
+} */
 
 .aboutHeading {
     width: 100dvw;
     height: 15rem;
     justify-content: space-between;
-    background-color: rgb(7, 1, 31);
 }
 
 .aboutHeading p {
@@ -381,7 +378,6 @@ button:disabled {
 .aboutContent {
     width: 100dvw;
     height: 22.3rem;
-    background-color: rgb(230, 228, 255);
 }
 
 .aboutContent .aboutC {
@@ -393,7 +389,7 @@ button:disabled {
     box-shadow: 0 0 1rem gray;
     padding: 1.5rem;
     margin-top: -9rem;
-    align-items: start;
+    align-items: center;
     border-radius: 0.5rem;
     font-family: 'Nunito', sans-serif;
     text-shadow: 0 0 0.5rem gray;
@@ -415,9 +411,8 @@ button:disabled {
 
 .contactHeading {
     width: 100dvw;
-    height: 20rem;
+    height: 18rem;
     justify-content: flex-end;
-    background-color: rgb(8, 1, 31);
 }
 
 .contactHeading p {
@@ -438,19 +433,16 @@ button:disabled {
 
 .contactContent {
     width: 100dvw;
-    height: 35rem;
-    background-color: rgb(255, 228, 228);
 }
 
 .contactC {
     font-size: 1.3rem;
-    width: 80dvw;
-    height: 40rem;
+    width: 78dvw;
     background: rgb(239, 239, 239);
     text-align: start;
     box-shadow: 0 0 1rem gray;
     padding: 1.5rem;
-    margin-top: -13rem;
+    margin-top: -10rem;
     align-items: start;
     border-radius: 0.5rem;
     font-family: 'Nunito', sans-serif;
@@ -479,7 +471,6 @@ button:disabled {
 }
 
 form {
-/* .form1 { */
     box-shadow: 0 0 0.4rem #000076;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -500,6 +491,7 @@ form {
 input:focus-visible {
     outline: none;
     background-color: #e8e6ff;
+    box-shadow: 0 0 10px #03ffee;
 }
 
 .cominp {
@@ -566,4 +558,550 @@ textarea:focus-visible {
     cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 0 1rem #9a9fc1;
+}
+
+.sideNavbar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: 4rem;
+    font-size: 2.5rem;
+    right: 0rem;
+    background: darkblue;
+    padding: 1rem;
+    width: 40vw;
+    transition: 0.4s;
+    text-decoration: overline;
+}
+
+.sideNavbar li {
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.sideNavbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.menuImg {
+    width: 7vw;
+}
+
+.menuImg:hover {
+    cursor: pointer;
+}
+
+.src {
+    display: inline-block;
+    animation: lightblink 1s linear infinite;
+}
+
+@keyframes lightblink {
+    0% {
+        text-shadow: 0 0 2px red;
+    }
+    20% {
+        text-shadow: 0 0 2px red;
+    }
+
+    50% {
+        text-shadow: none;
+    }
+
+    80% {
+        text-shadow: 0 0 2px red;
+    }
+    100% {
+        text-shadow: 0 0 2px red;
+    }
+}
+
+/*------------------------***********************Responsive CSS */
+@media (max-width:1441px) and (min-width:1235px) {
+
+    nav {
+        width: 100vw;
+        height: 8rem;
+    }
+
+    .ul {
+        justify-content: space-between;
+        width: 100vw;
+    }
+
+    .logo {
+        width: 9rem;
+    }
+
+    .title {
+        font-size: 3.5rem;
+    }
+
+    li {
+        font-size: 1.8rem;
+    }
+
+    .sideBar {
+        width: 18rem;
+    }
+
+    .sideBar li {
+        font-size: 2.3rem;
+        width: 14rem;
+    }
+
+    .aboutHeading {
+        height: 22rem;
+    }
+
+    .aboutHeading p {
+        width: 30rem;
+        height: 5rem;
+        font-size: 4rem;
+    }
+
+    .aboutContent {
+        height: 37rem;
+    }
+
+    .aboutContent .aboutC {
+        font-size: 2rem;
+        width: 85dvw;
+        height: 40rem;
+        align-items: center;
+    }
+
+    .newsImg {
+        width: 39rem;
+    }
+
+    .contactHeading {
+        height: 25rem;
+    }
+
+    .contactHeading p {
+        height: 5rem;
+        width: 40rem;
+        font-size: 4rem;
+    }
+
+    .contactC {
+        align-items: center;
+    }
+
+    .form {
+        width: 35rem;
+    }
+
+    form {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .cominp {
+        width: 20rem;
+        height: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .imgBox {
+        width: 35rem;
+    }
+
+    .imgBox img {
+        width: 35rem;
+        height: 20rem;
+    }
+
+    .content {
+        width: 77rem;
+    }
+
+    .loading {
+        width: 100vw;
+    }
+
+    .news-box {
+        justify-content: space-between;
+    }
+
+    .content-part {
+        width: 55rem;
+    }
+}
+
+@media (max-width:1025px) {
+    .newsImg {
+        width: 24rem;
+    }
+
+    .contactHeading {
+        height: 15rem;
+    }
+
+    .contactHeading p {
+        margin-bottom: 5rem;
+    }
+
+    .form {
+        width: 50vw;
+    }
+
+    .cominp {
+        empty-cells: 10rem;
+    }
+
+    textarea {
+        height: 5rem;
+        width: 20rem;
+    }
+
+    .imgBox {
+        width: 24rem;
+        height: 26rem;
+    }
+
+    .imgBox img {
+        width: 24rem;
+    }
+
+    .contactC {
+        margin-top: -5rem;
+        align-items: center;
+        gap: 0;
+    }
+
+    .news-box {
+        gap: 1rem;
+    }
+
+    .content {
+        width: 61rem;
+    }
+
+    .aboutContent .aboutC {
+        width: 85dvw;
+    }
+}
+
+@media (max-width:1005px) {
+    .content {
+        width: 95vw;
+    }
+
+    .aboutContent .aboutC {
+        margin-top: -5rem;
+        height: 35rem;
+        flex-wrap: wrap-reverse;
+    }
+
+    .contactC {
+        margin-top: -5rem;
+        flex-wrap: wrap-reverse;
+        width: 65dvw;
+    }
+
+    .imgBox {
+        height: 15rem;
+    }
+
+    .copyright {
+        width: 60vw;
+        margin-top: 1rem;
+    }
+
+    .newsimg {
+        width: 10rem;
+        margin-bottom: 7rem;
+    }
+
+    .aboutContent {
+        height: 35rem;
+    }
+}
+
+@media (max-width:870px) {
+    .header {
+        font-size: 2rem;
+    }
+
+    .main-news-box {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .top-news-headlines {
+        margin-bottom: 3.5rem;
+    }
+
+    .img-part img {
+        width: 20rem;
+    }
+}
+
+@media (max-width:660px) {
+    .aboutContent {
+        height: 40rem;
+    }
+
+    .aboutContent .aboutC {
+        height: 40rem;
+    }
+
+    .newsimg {
+        width: 7rem;
+    }
+}
+
+@media (max-width:601px) {
+    .sideNavbar li {
+        font-size: 1.5rem;
+    }
+
+    .top-news-headlines {
+        margin-bottom: 5rem;
+    }
+
+    .news-box {
+        width: 20rem;
+        flex-wrap: wrap-reverse;
+    }
+
+    .aboutContent {
+        height: 42rem;
+    }
+
+    .aboutContent .aboutC {
+        height: 42rem;
+    }
+
+    .copyright p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width:541px) {
+    .contactC {
+        width: 80vw;
+    }
+}
+
+@media (max-width:500px) {
+    .sideNavbar li {
+        font-size: 1.2rem;
+    }
+
+    .header {
+        font-size: 1.5rem;
+    }
+
+    .top-news-headlines {
+        margin-bottom: 7rem;
+    }
+
+    .news-box {
+        width: 20rem;
+    }
+
+    .aboutContent {
+        height: 45rem;
+    }
+
+    .aboutContent .aboutC {
+        height: 45rem;
+    }
+
+    .imgBox {
+        width: 15rem;
+        height: 10rem;
+    }
+
+    .imgBox img {
+        width: 18rem;
+    }
+
+    .contactHeading {
+        height: 12rem;
+    }
+
+    .contactHeading p {
+        width: 15rem;
+        height: 2rem;
+        font-size: 2rem;
+    }
+
+    .cominp {
+        width: 10rem;
+    }
+
+    textarea {
+        width: 15rem;
+    }
+
+    .copyright p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:431px) {
+    .sideNavbar li {
+        font-size: 1rem;
+    }
+
+    .sideNavbar {
+        gap: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:421px) {
+    .aboutHeading p {
+        font-size: 1.8rem;
+    }
+
+    .aboutContent {
+        height: 50rem;
+    }
+
+    .aboutContent .aboutC {
+        height: 50rem;
+    }
+
+}
+
+@media (max-width:390px) {
+    .newsImg {
+        width: 20rem;
+    }
+
+    .aboutContent .aboutC {
+        width: 75vw;
+    }
+}
+
+@media (max-width:371px) {
+    .content {
+        width: 90vw;
+    }
+
+    .sideNavbar li {
+        font-size: 1rem;
+        padding: 0.2rem;
+    }
+
+    .sideNavbar {
+        padding: 0.5rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .news-box {
+        width: 17rem;
+    }
+
+    .top-news-headlines {
+        margin-bottom: 9rem;
+    }
+
+    .img-part img {
+        width: 17rem;
+    }
+
+    .newsImg {
+        width: 15rem;
+    }
+
+    .aboutHeading p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width:330px) {
+    .sideNavbar li {
+        font-size: 0.7rem;
+    }
+
+    .top-news-headlines {
+        margin-bottom: 11rem;
+    }
+
+    .aboutContent .aboutC {
+        height: 53rem;
+    }
+}
+
+@media (max-width:315px) {
+    .header {
+        font-size: 1rem;
+    }
+
+    .top-news-headlines {
+        margin-bottom: 13rem;
+    }
+
+    .news-box {
+        width: 15rem;
+    }
+
+    .img-part img {
+        width: 15rem;
+    }
+
+    .aboutContent .aboutC {
+        height: 55rem;
+    }
+}
+
+@media (max-width:300px) {
+    .sideBar {
+        width: 10rem;
+    }
+
+    .top-news-headlines {
+        margin-bottom: 15rem;
+    }
+
+    .aboutContent {
+        height: 55rem;
+    }
+
+    .aboutContent .aboutC {
+        height: 60rem;
+    }
+
+    .newsImg {
+        width: 12rem;
+    }
+
+    .imgBox img {
+        width: 12rem;
+    }
+
+    .copyright {
+        flex-wrap: wrap;
+    }
+
+    .cominp {
+        width: 10rem;
+    }
+
+    textarea {
+        width: 10rem;
+    }
+
+    .imagesContact {
+        gap: 1rem;
+    }
+
+    .contactC {
+        width: 100vw;
+    }
 }

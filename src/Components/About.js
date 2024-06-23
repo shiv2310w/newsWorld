@@ -6,7 +6,7 @@ export default function About() {
 
   return (
     <>
-    <div className="aboutContainer">
+    <div className="container dffcntr">
         <div className="aboutHeading df">
             <p className="df">About Us</p>
             <img src={R1} alt="" className="newsimg"/>
