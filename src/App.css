@@ -599,6 +599,10 @@ textarea:focus-visible {
     animation: lightblink 1s linear infinite;
 }
 
+.line-news-container{
+    width: 70vw;
+}
+
 @keyframes lightblink {
     0% {
         text-shadow: 0 0 2px red;

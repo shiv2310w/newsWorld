@@ -31,7 +31,7 @@ export default class Home extends Component {
         pageSize: PropTypes.number,
         category: PropTypes.string,
         header: PropTypes.bool,
-        apikey:PropTypes.string
+        apikey: PropTypes.string
     }
 
     async componentDidMount() {
@@ -39,19 +39,25 @@ export default class Home extends Component {
     }
 
     dataFetch = async (pgno = 1) => {
-        this.props.setProgress(10)
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${pgno}&pageSize=${this.props.pageSize}`;
-        this.setState({ loading: true });
-        let data = await fetch(url);
-        this.props.setProgress(40)
-        let jsonData = await data.json();
-        this.setState({
-            articles: jsonData.articles,
-            totalArticles: jsonData.totalResults,
-            page: this.state.page + 1,
-            loading: false,
-        })
-        this.props.setProgress(100)
+        try {
+
+            this.props.setProgress(10)
+            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${pgno}&pageSize=${this.props.pageSize}`;
+            this.setState({ loading: true });
+            let data = await fetch(url);
+            this.props.setProgress(40)
+            let jsonData = await data.json();
+            this.setState({
+                articles: jsonData.articles,
+                totalArticles: jsonData.totalResults,
+                page: this.state.page + 1,
+                loading: false,
+            })
+            this.props.setProgress(100);
+            console.log(this.state.articles)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     // ---------************** This is Next and Previous Button function ********************-------------
@@ -68,14 +74,18 @@ export default class Home extends Component {
     // ---------***************************************---------------------------------------------
 
     fetchMoreData = async () => {
-        this.setState({ page: this.state.page + 1 });
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page - 1}&pageSize=${(this.state.totalArticles - this.state.articles.length) === (this.state.totalArticles % this.props.pageSize) ? this.props.pageSize - (this.props.pageSize - this.state.totalArticles % this.props.pageSize):this.props.pageSize}`;
-        let data = await fetch(url);
-        let jsonData = await data.json();
-        this.setState({
-            articles: this.state.articles.concat(jsonData.articles),
-            totalArticles: jsonData.totalResults,
-        })
+        try {
+            this.setState({ page: this.state.page + 1 });
+            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page - 1}&pageSize=${(this.state.totalArticles - this.state.articles.length) === (this.state.totalArticles % this.props.pageSize) ? this.props.pageSize - (this.props.pageSize - this.state.totalArticles % this.props.pageSize) : this.props.pageSize}`;
+            let data = await fetch(url);
+            let jsonData = await data.json();
+            this.setState({
+                articles: this.state.articles.concat(jsonData.articles),
+                totalArticles: jsonData.totalResults,
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     render() {
@@ -97,17 +107,18 @@ export default class Home extends Component {
                             {
                                 this.state.articles ?
                                     !this.state.loading && this.state.articles.map((element) => {
-                                        if (element.url !== null && element.description !== null && element.urlToImage !== null) {
+                                        if (element.url !== null ) {
+
                                             return <div key={element.url}>
-                                                <NewsItems key={element.title} title={element.title.slice(0, 60)} desc={element.description.slice(0, 110)} url={element.url} urlImg={element.urlToImage} pub={element.source.name} pubTime={element.publishedAt} />
+                                                <NewsItems key={element.title} title={element.title.slice(0, 60)} desc={element} url={element.url} urlImg={element.urlToImage} pub={element.source.name} pubTime={element.publishedAt} />
                                             </div>
                                         } else {
-                                            return ''
+                                            return <div>Hello not work it</div>
                                         }
                                     }) : ""
                             }
                         </div>
-                    {!this.state.loading && <div className="uparrow btn" onClick={() => {window.scrollTo(0, 0) }}><button>&uarr; Go to Top</button></div>}
+                        {!this.state.loading && <div className="uparrow btn" onClick={() => { window.scrollTo(0, 0) }}><button>&uarr; Go to Top</button></div>}
                     </InfiniteScroll>
                     {/* ---------***************************************--------------------------------------------- */}
                     {/* {!this.state.loading &&

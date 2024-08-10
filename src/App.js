@@ -37,14 +37,14 @@ export default class App extends Component {
           <BrowserRouter>
             <div className='full-container text-center'>
               <NavBar />
-              
+
               <LoadingBar
                 color='#cb0606'
                 progress={this.state.progress}
                 height={2}
               />
               <Routes>
-                <Route exact path='/news-app' element={<Home setProgress={this.setProgress} apikey={this.apikey} key={'general'} country={'in'} category={'general'} pageSize={10} header={true} />} />
+                <Route exact path='/' element={<Home setProgress={this.setProgress} apikey={this.apikey} key={'general'} country={'in'} category={'general'} pageSize={10} header={true} />} />
                 <Route exact path='/health' element={<Home setProgress={this.setProgress} apikey={this.apikey} key={'health'} country={'in'} category={'health'} pageSize={10} header={false} />} />
                 <Route exact path='/entertainment' element={<Home setProgress={this.setProgress} apikey={this.apikey} key={'entertainment'} country={'in'} category={'entertainment'} pageSize={10} header={false} />} />
                 <Route exact path='/business' element={<Home setProgress={this.setProgress} apikey={this.apikey} key={'business'} country={'in'} category={'business'} pageSize={10} header={false} />} />

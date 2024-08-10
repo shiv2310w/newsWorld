@@ -52,6 +52,7 @@ const NavBar = () => {
                         <div className="c-li" id='mainNavbar'>
                             <li onClick={item.update}>News Category</li>
                             <Link to={'/world'} onClick={item.clickOnScreen}><li>World</li></Link>
+                            <Link to={'/liveNews'} onClick={item.clickOnScreen}><li>Live News</li></Link>
                             <Link to={'/about'} onClick={item.clickOnScreen}><li>About us</li></Link>
                             <Link to={'/contact'} onClick={item.clickOnScreen}><li>Contact us</li></Link>
                         </div>
