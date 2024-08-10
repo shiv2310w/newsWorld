@@ -10,8 +10,8 @@ import Contact from './Components/Contact';
 import ItemState from './Content/ItemContent';
 
 export default class App extends Component {
-  apikey = process.env.REACT_APP_API_KEY
-  newsdatapi = process.env.REACT_APP_NEW_API
+  apikey = "241a4419070d48e28ad72168354095aa"
+  newsdatapi = "pub_368561fcb5a6ee1fa488588ba438a2882bcb3"
   constructor() {
     super();
     this.state = {
